@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Tutoria = require('../models/tutoria'); // Asegúrate de que el modelo esté definido correctamente
+const Tutoria = require('../models/tutoria'); 
 
 router.get('/', async (req, res) => {
     try {

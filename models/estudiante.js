@@ -15,9 +15,9 @@ const estudianteSchema = new mongoose.Schema({
         unique: true,
     },
 
-    // Agrega más campos según sea necesario
+    
 }, {
-    timestamps: true, // Agrega createdAt y updatedAt
+    timestamps: true, 
 });
 
 const Estudiante = mongoose.model('Estudiante', estudianteSchema);

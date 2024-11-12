@@ -18,9 +18,9 @@ const tutorSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    // Agrega más campos según sea necesario
+    
 }, {
-    timestamps: true, // Agrega createdAt y updatedAt
+    timestamps: true, 
 });
 
 const Tutor = mongoose.model('Tutor', tutorSchema);
