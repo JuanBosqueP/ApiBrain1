@@ -1,9 +1,27 @@
 const mongoose = require('mongoose');
 
 const estudianteSchema = new mongoose.Schema({
-    Estudiante: { type: String, required: true, unique: true },
-    Contraseña: { type: String, required: true },
-    Rol: { type: String, enum: ['estudiante', 'tutor'], required: true }
+    nombre: {
+        type: String,
+        required: true,
+    },
+    apellido: {
+        type: String,
+        required: true,
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+    fechaNacimiento: {
+        type: Date,
+        required: true,
+    },
+    // Agrega más campos según sea necesario
+}, {
+    timestamps: true, // Agrega createdAt y updatedAt
 });
 
-module.exports = mongoose.model('Estudiante', estudianteSchema);
+const Estudiante = mongoose.model('Estudiante', estudianteSchema);
+module.exports = Estudiante;

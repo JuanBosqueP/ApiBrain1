@@ -1,8 +1,27 @@
 const mongoose = require('mongoose');
 
 const tutorSchema = new mongoose.Schema({
-    Nombre: { type: String, required: true },
-    Materia: { type: String, required: true },
+    nombre: {
+        type: String,
+        required: true,
+    },
+    apellido: {
+        type: String,
+        required: true,
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+    especialidad: {
+        type: String,
+        required: true,
+    },
+    // Agrega más campos según sea necesario
+}, {
+    timestamps: true, // Agrega createdAt y updatedAt
 });
 
-module.exports = mongoose.model('Tutor', tutorSchema);
+const Tutor = mongoose.model('Tutor', tutorSchema);
+module.exports = Tutor;

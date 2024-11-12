@@ -1,18 +1,17 @@
-
 const Tutor = require('../models/tutor');
 
-
-exports.getTutor = async (req, res) => {
+// Obtener todos los tutores
+const getTutores = async (req, res) => {
     try {
-        const tutor = await Tutor.find();
-        res.json(tutor);
+        const tutores = await Tutor.find();
+        res.json(tutores);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
 };
 
-
-exports.createTutor = async (req, res) => {
+// Crear un nuevo tutor
+const createTutor = async (req, res) => {
     const newTutor = new Tutor(req.body);
     try {
         await newTutor.save();
@@ -22,8 +21,8 @@ exports.createTutor = async (req, res) => {
     }
 };
 
-
-exports.updateTutor = async (req, res) => {
+// Actualizar un tutor
+const updateTutor = async (req, res) => {
     try {
         const updatedTutor = await Tutor.findByIdAndUpdate(req.params.id, req.body, { new: true });
         res.json(updatedTutor);
@@ -32,12 +31,19 @@ exports.updateTutor = async (req, res) => {
     }
 };
 
-
-exports.deleteTutor = async (req, res) => {
+// Eliminar un tutor
+const deleteTutor = async (req, res) => {
     try {
         await Tutor.findByIdAndDelete(req.params.id);
         res.status(204).send();
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
+};
+
+module.exports = {
+    getTutores,
+    createTutor,
+    updateTutor,
+    deleteTutor,
 };

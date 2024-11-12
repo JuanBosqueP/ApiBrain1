@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
-const estudianteRoutes = require('./estudianteRoutes'); // Cambiar a estudianteRoutes
-const tutorRoutes = require('./tutorRoutes'); // Cambiar a tutorRoutes
-const tutoriaRoutes = require('./tutoriaRoutes'); // Asegúrate de incluir tutoriaRoutes si es necesario
+const estudianteRoutes = require('./routes/estudianteRoutes'); // Cambiar a estudianteRoutes
+const tutorRoutes = require('./routes/tutorRoutes'); // Cambiar a tutorRoutes
+const tutoriaRoutes = require('./routes/tutoriaRoutes'); // Asegúrate de incluir tutoriaRoutes si es necesario
 
 app.use(express.json());
 app.use('/api/estudiantes', estudianteRoutes); // Rutas para estudiantes

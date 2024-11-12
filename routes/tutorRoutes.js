@@ -4,8 +4,8 @@ const Tutor = require('../models/tutor'); // Asegúrate de que el modelo esté d
 
 router.get('/', async (req, res) => {
     try {
-        const tutors = await Tutor.find();
-        res.json (tutors);
+        const tutores = await Tutor.find();
+        res.json(tutores);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }

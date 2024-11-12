@@ -1,29 +1,42 @@
 const express = require('express');
 const router = express.Router();
-const Tutoria = require('../models/tutoria');
+const Estudiante = require('../models/estudiante'); // Asegúrate de que el modelo esté definido correctamente
 
 router.get('/', async (req, res) => {
-    const tutoria = await Tutoria.find();
-    res.json(tutoria);
+    try {
+        const estudiantes = await Estudiante.find();
+        res.json(estudiantes);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
 });
-
 
 router.post('/', async (req, res) => {
-    const tutoria = new Tutoria(req.body);
-    await tutoria.save();
-    res.status(201).json(tutoria);
+    const newEstudiante = new Estudiante(req.body);
+    try {
+        await newEstudiante.save();
+        res.status(201).json(newEstudiante);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
 });
-
 
 router.put('/:id', async (req, res) => {
-    const tutoria = await Tutoria.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    res.json(tutoria);
+    try {
+        const updatedEstudiante = await Estudiante.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        res.json(updatedEstudiante);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
 });
 
-
 router.delete('/:id', async (req, res) => {
-    await Tutoria.findByIdAndDelete(req.params.id);
-    res.status(204).send();
+    try {
+        await Estudiante.findByIdAndDelete(req.params.id);
+        res.status(204).send();
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
 });
 
 module.exports = router;
