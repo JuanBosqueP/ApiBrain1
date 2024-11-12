@@ -1,18 +1,15 @@
-
 const express = require('express');
 const router = express.Router();
-const Tutor = require('../models/tutor');
-
+const Tutor = require('../models/tutor'); // Asegúrate de que el modelo esté definido correctamente
 
 router.get('/', async (req, res) => {
     try {
-        const tutor = await Tutor.find();
-        res.json(tutor);
+        const tutors = await Tutor.find();
+        res.json (tutors);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
 });
-
 
 router.post('/', async (req, res) => {
     const newTutor = new Tutor(req.body);
@@ -24,7 +21,6 @@ router.post('/', async (req, res) => {
     }
 });
 
-
 router.put('/:id', async (req, res) => {
     try {
         const updatedTutor = await Tutor.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -33,7 +29,6 @@ router.put('/:id', async (req, res) => {
         res.status(400).json({ message: error.message });
     }
 });
-
 
 router.delete('/:id', async (req, res) => {
     try {
