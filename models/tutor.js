@@ -14,7 +14,7 @@ const tutorSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
-    especialidad: {
+    materia: {
         type: String,
         required: true,
     },

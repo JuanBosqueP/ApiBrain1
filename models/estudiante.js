@@ -14,10 +14,7 @@ const estudianteSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
-    fechaNacimiento: {
-        type: Date,
-        required: true,
-    },
+
     // Agrega más campos según sea necesario
 }, {
     timestamps: true, // Agrega createdAt y updatedAt
