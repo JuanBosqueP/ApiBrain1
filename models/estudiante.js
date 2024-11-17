@@ -14,8 +14,10 @@ const estudianteSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
-
-    
+    telefono: {
+        type: String,
+        required: false, // Campo opcional
+    },
 }, {
     timestamps: true, 
 });
