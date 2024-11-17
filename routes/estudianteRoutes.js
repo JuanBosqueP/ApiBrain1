@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
         const estudiantes = await Estudiante.find();
         res.json(estudiantes);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        res.status(500).json({ message: 'Error al obtener los estudiantes', error: error.message });
     }
 });
 
@@ -32,11 +32,15 @@ router.put('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
     try {
-        await Estudiante.findByIdAndDelete(req.params.id);
-        res.status(204).send();
+        const estudiante = await Estudiante.findByIdAndDelete(req.params.id);
+        if (!estudiante) {
+            return res.status(404).json({ message: 'Estudiante no encontrado' });
+        }
+        res.status(200).json({ message: 'Estudiante eliminado exitosamente' });
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        res.status(500).json({ message: 'Error al eliminar el estudiante', error: error.message });
     }
+});
 });
 
 module.exports = router;
