@@ -119,8 +119,8 @@
                 // Redirige al dashboard si el inicio de sesión es exitoso
                 window.location.href = 'inicio.html'; // Redirige a inicio.html
             } else {
-                // Maneja el error
-                alert('Credenciales inválidas');
+                const errorData = await response.json();
+                alert(`Error: ${errorData.message || 'Credenciales inválidas'}`); // Mensaje de error en caso de fallo
             }
         });
     </script>
