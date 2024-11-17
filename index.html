@@ -80,11 +80,19 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
-        // Ejemplo de código para manejar el inicio de sesión
+
+            // Validación solicitud de inicio de sesión
+            if (!username || !password) {
+             alert('Por favor, completa todos los campos.');
+        return;
+}
+
+        // Manejo de inicio de sesión
         document.getElementById('loginForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
+
 
             // Realiza la solicitud de inicio de sesión
             const response = await fetch('http://tu-api.com/api/auth/login', {
