@@ -19,7 +19,10 @@ const tutoriaSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-   
+    ubicacion: { // Campo opcional agregado
+        type: String,
+        required: false,
+    },
 }, {
     timestamps: true, 
 });
