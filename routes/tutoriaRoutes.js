@@ -15,7 +15,7 @@ router.post('/', async (req, res) => {
     const newTutoria = new Tutoria(req.body);
     try {
         await newTutoria.save();
-        res.status(201).json(newTutoria);
+        res.status(201).json({ message: 'Tutoría creada exitosamente', tutoria: newTutoria });
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
