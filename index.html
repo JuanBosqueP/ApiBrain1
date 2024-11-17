@@ -21,6 +21,14 @@
             font-size: 2.5rem;
             margin-bottom: 20px;
         }
+        .btn-success {
+            background-color: #28a745; /* Color verde */
+            border-color: #28a745;
+        }
+        .btn-success:hover {
+            background-color: #218838; /* Color verde oscuro al pasar el mouse */
+            border-color: #1e7e34;
+        }
     </style>
 </head>
 <body>
@@ -84,17 +92,18 @@
 
     <script>
 
-            // Validación solicitud de inicio de sesión
-            if (!username || !password) {
-             alert('Por favor, completa todos los campos.');
-        return;
-}
 
         // Manejo de inicio de sesión
         document.getElementById('loginForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
+
+            // Validación solicitud de inicio de sesión
+            if (!username || !password) {
+             alert('Por favor, completa todos los campos.');
+             return;
+        }
 
 
             // Realiza la solicitud de inicio de sesión
