@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
         const estudiantes = await Estudiante.find();
         res.json(estudiantes);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        res.status(500).json({ message: 'Error al obtener los estudiantes', error: error.message });
     }
 });
 
