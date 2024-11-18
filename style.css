@@ -1,0 +1,97 @@
+/* Reset de estilos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fondo general */
+body {
+  background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+}
+
+/* Contenedor del formulario */
+.form-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos del formulario */
+.form-login h4 {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.controls {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #1f53c5;
+  border-radius: 5px;
+  background: #24303c;
+  color: white;
+  font-size: 16px;
+}
+
+.controls::placeholder {
+  color: #a9a9a9;
+}
+
+.botons {
+  width: 100%;
+  background: #1f53c5;
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.botons:hover {
+  background-color: #3a6df0;
+}
+
+/* Enlaces */
+.form-login p {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.form-login a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.form-login a:hover {
+  text-decoration: underline;
+}
+
+/* Estilo del título principal */
+.main-title {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.main-title h1 {
+  font-size: 36px;
+  font-weight: 700; /* Negrita */
+  color: white;
+  margin-top: 20px; /* Separación del borde superior */
+}
+
