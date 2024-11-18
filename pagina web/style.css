@@ -28,17 +28,3 @@ main {
   gap: 10px;
 }
 
-.botons {
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 5px;
-  background: #1f53c5;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.botons:hover {
-  background: #3a6df0;
-}
