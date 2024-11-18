@@ -7,7 +7,7 @@
 
 /* Fondo general */
 body {
-  background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+  background: linear-gradient(to bottom, #0c2e45, #144d68, #1e6b8f); /* Degradado en tonos azulados */
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -19,79 +19,93 @@ body {
 /* Contenedor del formulario */
 .form-container {
   width: 100%;
-  max-width: 400px;
+  max-width: 500px; /* Más ancho para acomodar los campos */
   padding: 20px;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.8); /* Fondo semitransparente para el formulario */
   border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra para el formulario */
+  text-align: center;
+}
+
+/* Título de la aplicación */
+.main-title {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top: 20px; /* Posición desde la parte superior */
+  left: 50%;
+  transform: translateX(-50%); /* Centrar horizontalmente */
+}
+
+.main-title h1 {
+  font-size: 36px;
+  font-weight: 700; /* Negrita */
+  color: white; /* Color blanco para el título */
 }
 
 /* Estilos del formulario */
 .form-login h4 {
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 700; /* Negrita */
   text-align: center;
   margin-bottom: 20px;
-  color: #ffffff;
+  color: #ffffff; /* Color blanco para los títulos del formulario */
 }
 
 .controls {
   width: 100%;
   padding: 10px;
   margin-bottom: 15px;
-  border: 1px solid #1f53c5;
+  border: 1px solid #1f53c5; /* Borde azul */
   border-radius: 5px;
-  background: #24303c;
+  background: #24303c; /* Fondo oscuro para los campos */
   color: white;
   font-size: 16px;
 }
 
 .controls::placeholder {
-  color: #a9a9a9;
+  color: #a9a9a9; /* Color gris para el texto placeholder */
 }
 
-.botons {
+.controls select {
+  background: #24303c;
+  color: white;
+}
+
+/* Botón inferior */
+.button-group-bottom {
+  margin-top: 20px;
+}
+
+.button-group-bottom .botons {
   width: 100%;
-  background: #1f53c5;
+  background: #1f53c5; /* Fondo azul para el botón */
   border: none;
   padding: 12px;
   border-radius: 5px;
   font-size: 16px;
-  color: white;
+  color: white; /* Color blanco para el texto del botón */
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
-.botons:hover {
-  background-color: #3a6df0;
+.button-group-bottom .botons:hover {
+  background-color: #3a6df0; /* Color azul más claro al pasar el mouse */
 }
 
-/* Enlaces */
-.form-login p {
+/* Texto para volver al inicio de sesión */
+.create-account-text {
   margin-top: 10px;
-  text-align: center;
+  font-size: 14px;
+  color: #ffffff; /* Color blanco */
 }
 
-.form-login a {
-  color: #ffffff;
+.create-account-text a {
+  color: #3a6df0; /* Color azul claro */
   text-decoration: none;
+  font-weight: 700;
 }
 
-.form-login a:hover {
+.create-account-text a:hover {
   text-decoration: underline;
 }
-
-/* Estilo del título principal */
-.main-title {
-  width: 100%;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.main-title h1 {
-  font-size: 36px;
-  font-weight: 700; /* Negrita */
-  color: white;
-  margin-top: 20px; /* Separación del borde superior */
-}
-

@@ -4,9 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>App de Tutorías</title>
+  <title>Inicio de Sesión - App de Tutorías</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -15,11 +14,20 @@
   </header>
   <div class="form-container">
     <section class="form-login">
-      <h4>Iniciar Sesión</h4>
-      <input class="controls" type="text" name="usuario" id="usuario" placeholder="Ingrese su Usuario">
-      <input class="controls" type="password" name="password" id="password" placeholder="Ingrese su Contraseña">
-      <input class="botons" type="submit" value="Iniciar Sesión">
-      <p><a href="register.html">¿No tienes cuenta? Regístrate</a></p>
+      
+      <h4>Inicio de Sesión</h4>
+      <input class="controls" type="text" name="usuario" id="usuario" placeholder="Usuario">
+      <input class="controls" type="password" name="password" id="password" placeholder="Contraseña">
+      <select class="controls" name="tipo_cuenta" id="tipo_cuenta">
+        <option value="">Seleccione el tipo de cuenta</option>
+        <option value="administrador">Administrador</option>
+        <option value="usuario">Usuario</option>
+        <option value="tutor">Tutor</option>
+      </select>
+      <div class="button-group-bottom">
+        <button class="botons">Iniciar Sesión</button>
+      </div>
+      <p class="create-account-text">¿No tienes cuenta? <a href="register.html">Crea una</a></p>
     </section>
   </div>
 </body>
