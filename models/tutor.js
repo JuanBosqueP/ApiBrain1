@@ -18,21 +18,14 @@ const tutorSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    nivelEducativo: { // Campo opcional agregado
+    nivelEducativo: { // Campo opcional
         type: String,
         required: false,
     },
 }, {
-    timestamps: true, 
+    timestamps: true, // Correctamente definido aquí
 });
 
-const Tutor = mongoose.model('Tutor', tutorSchema);
-module.exports = Tutor;
-
-    
-}, {
-    timestamps: true, 
-});
-
+// Definir y exportar el modelo
 const Tutor = mongoose.model('Tutor', tutorSchema);
 module.exports = Tutor;

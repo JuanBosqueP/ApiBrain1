@@ -24,10 +24,12 @@ mongoose.connect(mongoUri)
 // Importar rutas
 const tutoriaRoutes = require('./routes/tutoriaRoutes');
 const estudianteRoutes = require('./routes/estudianteRoutes'); // Añadido
+const tutorRoutes = require('./routes/tutorRoutes'); // Importa las rutas
 
 // Registrar las rutas
 app.use('/api/tutorias', tutoriaRoutes);
 app.use('/api/estudiantes', estudianteRoutes); // Añadido
+app.use('/api/tutores', tutorRoutes); // Registra las rutas
 
 // Iniciar el servidor
 app.listen(port, () => {

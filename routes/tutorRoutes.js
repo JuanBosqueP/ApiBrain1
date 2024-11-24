@@ -5,9 +5,9 @@ const Tutor = require('../models/tutor');
 router.get('/', async (req, res) => {
     try {
         const tutores = await Tutor.find();
-        res.json(tutores);
+        res.status(200).json(tutores);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        res.status(500).json({ message: 'Error al obtener los tutores', error: error.message });
     }
 });
 
