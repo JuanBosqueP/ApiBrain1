@@ -1,23 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Opciones de Administrador</title>
+  <title>Administrador</title>
   <link rel="stylesheet" href="../css/admin.css">
-  <script src="../js/general.js"></script>
 </head>
-
 <body>
-  <header>
-    <h1>Administrador</h1>
-  </header>
-  <main>
-    <button class="botons">Datos</button>
-    <button class="botons">Notificaciones</button>
-    <button class="botons">Módulos Pago</button>
-  </main>
-</body>
+  <div class="container">
+    <!-- Menú lateral -->
+    <nav class="sidebar">
+      <h3>Menú</h3>
+      <ul>
+        <li><a href="#" onclick="showSection('gestionPagos')">Gestión de Pagos</a></li>
+        <li><a href="#" onclick="showSection('gestionUsuarios')">Gestión de Usuarios</a></li>
+        <li><a href="#" onclick="showSection('gestionTutores')">Gestión de Tutores</a></li>
+      </ul>
+      <button class="logout-btn" onclick="logout()">Cerrar Sesión</button>
+    </nav>
 
+    <!-- Contenido dinámico -->
+    <main class="content">
+      <section id="gestionPagos" class="section active">
+        <h1>Gestión de Pagos</h1>
+        <p>Aquí se podrán gestionar los pagos.</p>
+      </section>
+      <section id="gestionUsuarios" class="section">
+        <h1>Gestión de Usuarios</h1>
+        <p>Aquí se podrán gestionar los usuarios.</p>
+      </section>
+      <section id="gestionTutores" class="section">
+        <h1>Gestión de Tutores</h1>
+        <p>Aquí se podrán gestionar los tutores.</p>
+      </section>
+    </main>
+  </div>
+
+  <script src="../js/admin.js"></script>
+</body>
 </html>

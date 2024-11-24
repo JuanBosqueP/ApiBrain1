@@ -9,9 +9,9 @@ function showSection(sectionId) {
       sectionToShow.classList.add('active');
     }
   }
+  
   function logout() {
     // Redirigir al HTML de login
     window.location.href = "login.html";
   }
-  
   

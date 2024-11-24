@@ -104,3 +104,22 @@ body {
     transform: translateY(0);
   }
 }
+
+.logout-btn {
+  width: 100%; /* Mismo ancho que los enlaces */
+  padding: 10px;
+  margin-top: 15px; /* Espaciado similar a los enlaces */
+  border: none;
+  border-radius: 5px;
+  background-color: #24303c; /* Fondo oscuro como los enlaces */
+  color: white;
+  font-size: 18px; /* Mismo tamaño de texto que los enlaces */
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #1f53c5; /* Azul claro al pasar el mouse */
+}
+
