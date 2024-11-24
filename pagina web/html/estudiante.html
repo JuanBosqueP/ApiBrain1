@@ -1,23 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Estudiante y General</title>
+  <title>Estudiante</title>
   <link rel="stylesheet" href="../css/estudiante.css">
 </head>
-
 <body>
-  <header>
-    <h1>Estudiante</h1>
-  </header>
-  <main>
-    <button class="botons">Clases</button>
-    <button class="botons">Notas</button>
-    <button class="botons">Pagos</button>
-    <button class="botons">Documentos</button>
-  </main>
-</body>
+  <div class="container">
+    <!-- Menú lateral -->
+    <nav class="sidebar">
+      <h3>Menú</h3>
+      <ul>
+        <li><a href="#" onclick="showSection('clases')">Clases</a></li>
+        <li><a href="#" onclick="showSection('notas')">Notas</a></li>
+        <li><a href="#" onclick="showSection('pagos')">Pagos</a></li>
+        <li><a href="#" onclick="showSection('documentos')">Documentos</a></li>
+      </ul>
+    </nav>
 
+    <!-- Contenido dinámico -->
+    <main class="content">
+      <section id="clases" class="section active">
+        <h1>Clases</h1>
+        <p>Aquí se mostrarán las clases del estudiante.</p>
+      </section>
+      <section id="notas" class="section">
+        <h1>Notas</h1>
+        <p>Aquí se mostrarán las notas del estudiante.</p>
+      </section>
+      <section id="pagos" class="section">
+        <h1>Pagos</h1>
+        <p>Aquí se mostrarán los pagos realizados por el estudiante.</p>
+      </section>
+      <section id="documentos" class="section">
+        <h1>Documentos</h1>
+        <p>Aquí se mostrarán los documentos del estudiante.</p>
+      </section>
+    </main>
+  </div>
+
+  <script src="../js/estudiante.js"></script>
+</body>
 </html>
