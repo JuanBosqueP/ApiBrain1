@@ -1,0 +1,83 @@
+/* Reset de estilos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #0c2e45, #144d68, #1e6b8f);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+form {
+  background-color: #0c2e45; /* Fondo oscuro */
+  padding: 20px 30px;
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+  width: 300px; /* Ancho del formulario */
+  text-align: left;
+}
+
+form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form input,
+form select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+}
+
+form input[type="text"],
+form input[type="password"],
+form select {
+  background-color: #144d68;
+  color: white;
+}
+
+form input[type="text"]::placeholder,
+form input[type="password"]::placeholder {
+  color: #b8d8e4;
+}
+
+form button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #1f53c5;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+form button:hover {
+  background-color: #3a6df0;
+}
+
+form p {
+  text-align: center;
+  margin-top: 10px;
+}
+
+form p a {
+  color: #1f53c5;
+  text-decoration: none;
+}
+
+form p a:hover {
+  text-decoration: underline;
+}
