@@ -84,20 +84,49 @@ function getEstudiantes() {
     .then((response) => response.json())
     .then((data) => {
       const resultDiv = document.getElementById('estudiantesResult');
-      resultDiv.innerHTML = '<ul>' + data.map(estudiante => `
-        <li>
-          <strong>ID:</strong> ${estudiante._id} - 
-          <strong>Nombre:</strong> ${estudiante.nombre} ${estudiante.apellido} - 
-          <strong>Email:</strong> ${estudiante.email} - 
-          <strong>Teléfono:</strong> ${estudiante.telefono || 'No especificado'} - 
-          <strong>Fecha de creación:</strong> ${new Date(estudiante.createdAt).toLocaleString()}
-        </li>`).join('') + '</ul>';
+      
+      // Generar tabla
+      let tableHTML = `
+        <div class="table-container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Teléfono</th>
+                <th>Fecha de Creación</th>
+              </tr>
+            </thead>
+            <tbody>
+      `;
+
+      data.forEach(estudiante => {
+        tableHTML += `
+          <tr>
+            <td>${estudiante._id}</td>
+            <td>${estudiante.nombre} ${estudiante.apellido}</td>
+            <td>${estudiante.email}</td>
+            <td>${estudiante.telefono || 'No especificado'}</td>
+            <td>${new Date(estudiante.createdAt).toLocaleString()}</td>
+          </tr>
+        `;
+      });
+
+      tableHTML += `
+            </tbody>
+          </table>
+        </div>
+      `;
+
+      resultDiv.innerHTML = tableHTML;
     })
     .catch((error) => {
       console.error('Error al obtener los estudiantes:', error);
       alert('No se pudieron cargar los estudiantes.');
     });
 }
+
 
 function updateEstudiante() {
   const id = prompt('ID del estudiante que desea actualizar:');
@@ -157,7 +186,6 @@ function deleteEstudiante() {
       console.error('Error al eliminar el estudiante:', error);
     });
 }
-
 function getDocentes() {
   fetch('http://localhost:5001/api/tutores', {
     method: 'GET',
@@ -168,21 +196,51 @@ function getDocentes() {
     .then((response) => response.json())
     .then((data) => {
       const resultDiv = document.getElementById('docentesResult');
-      resultDiv.innerHTML = '<ul>' + data.map(tutor => `
-        <li>
-          <strong>ID:</strong> ${tutor._id} - 
-          <strong>Nombre:</strong> ${tutor.nombre} ${tutor.apellido} - 
-          <strong>Email:</strong> ${tutor.email} - 
-          <strong>Materia:</strong> ${tutor.materia} - 
-          <strong>Nivel Educativo:</strong> ${tutor.nivelEducativo || 'No especificado'} - 
-          <strong>Fecha de creación:</strong> ${new Date(tutor.createdAt).toLocaleString()}
-        </li>`).join('') + '</ul>';
+      
+      // Generar tabla
+      let tableHTML = `
+        <div class="table-container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Materia</th>
+                <th>Nivel Educativo</th>
+                <th>Fecha de Creación</th>
+              </tr>
+            </thead>
+            <tbody>
+      `;
+
+      data.forEach(tutor => {
+        tableHTML += `
+          <tr>
+            <td>${tutor._id}</td>
+            <td>${tutor.nombre} ${tutor.apellido}</td>
+            <td>${tutor.email}</td>
+            <td>${tutor.materia}</td>
+            <td>${tutor.nivelEducativo || 'No especificado'}</td>
+            <td>${new Date(tutor.createdAt).toLocaleString()}</td>
+          </tr>
+        `;
+      });
+
+      tableHTML += `
+            </tbody>
+          </table>
+        </div>
+      `;
+
+      resultDiv.innerHTML = tableHTML;
     })
     .catch((error) => {
       console.error('Error al obtener los tutores:', error);
       alert('No se pudieron cargar los tutores.');
     });
 }
+
 
 
 
@@ -246,7 +304,6 @@ function deleteDocente() {
       console.error('Error al eliminar el docente:', error);
     });
 }
-
 function getTutorias() {
   fetch('http://localhost:5001/api/tutorias', {
     method: 'GET',
@@ -257,21 +314,51 @@ function getTutorias() {
     .then((response) => response.json())
     .then((data) => {
       const resultDiv = document.getElementById('tutoriasResult');
-      resultDiv.innerHTML = '<ul>' + data.map(tutoria => `
-        <li>
-          <strong>ID:</strong> ${tutoria._id} - 
-          <strong>Estudiante:</strong> ${tutoria.estudiante.nombre} ${tutoria.estudiante.apellido} - 
-          <strong>Tutor:</strong> ${tutoria.tutor.nombre} ${tutoria.tutor.apellido} - 
-          <strong>Fecha:</strong> ${new Date(tutoria.fecha).toLocaleString()} - 
-          <strong>Tema:</strong> ${tutoria.tema} - 
-          <strong>Ubicación:</strong> ${tutoria.ubicacion || 'No especificada'}
-        </li>`).join('') + '</ul>';
+      
+      // Generar tabla
+      let tableHTML = `
+        <div class="table-container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Estudiante</th>
+                <th>Tutor</th>
+                <th>Fecha</th>
+                <th>Tema</th>
+                <th>Ubicación</th>
+              </tr>
+            </thead>
+            <tbody>
+      `;
+
+      data.forEach(tutoria => {
+        tableHTML += `
+          <tr>
+            <td>${tutoria._id}</td>
+            <td>${tutoria.estudiante?.nombre || 'Desconocido'} ${tutoria.estudiante?.apellido || ''}</td>
+            <td>${tutoria.tutor?.nombre || 'Desconocido'} ${tutoria.tutor?.apellido || ''}</td>
+            <td>${new Date(tutoria.fecha).toLocaleString()}</td>
+            <td>${tutoria.tema}</td>
+            <td>${tutoria.ubicacion || 'No especificada'}</td>
+          </tr>
+        `;
+      });
+
+      tableHTML += `
+            </tbody>
+          </table>
+        </div>
+      `;
+
+      resultDiv.innerHTML = tableHTML;
     })
     .catch((error) => {
       console.error('Error al obtener las tutorías:', error);
       alert('No se pudieron cargar las tutorías.');
     });
 }
+
 
 function getTutorias() {
   fetch('http://localhost:5001/api/tutorias', {

@@ -111,3 +111,56 @@ body {
   line-height: 1.5;
   color: #b8d8e4; /* Texto ligeramente más claro */
 }
+
+/* Botones de CRUD */
+.crud-actions button {
+  width: auto;
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: #24303c; /* Fondo oscuro */
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.crud-actions button:hover {
+  background-color: #1f53c5; /* Azul claro al pasar el mouse */
+}
+
+/* Estilo para las tablas */
+.table-container {
+  margin-top: 20px;
+  overflow-x: auto; /* Habilita el scroll horizontal si es necesario */
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background: rgba(0, 0, 0, 0.8); /* Fondo oscuro para la tabla */
+  color: white;
+}
+
+.table th, .table td {
+  padding: 12px 15px;
+  text-align: left;
+  border: 1px solid #1f53c5; /* Borde azul */
+}
+
+.table th {
+  background: #1f53c5; /* Fondo azul para el encabezado */
+  color: white;
+  font-weight: bold;
+}
+
+.table tr:nth-child(even) {
+  background: #24303c; /* Fondo alterno para las filas pares */
+}
+
+.table tr:hover {
+  background: #3a6df0; /* Fondo azul claro al pasar el mouse */
+}
