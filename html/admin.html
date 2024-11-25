@@ -12,26 +12,48 @@
     <nav class="sidebar">
       <h3>Menú - BrainBuddies - ADMIN</h3>
       <ul>
-        <li><a href="#" onclick="showSection('gestionPagos')">Gestión de Pagos</a></li>
         <li><a href="#" onclick="showSection('gestionUsuarios')">Gestión de Usuarios</a></li>
         <li><a href="#" onclick="showSection('gestionTutores')">Gestión de Tutores</a></li>
+        <li><a href="#" onclick="showSection('gestionTutorias')">Gestión de Tutorías</a></li>
       </ul>
       <button class="logout-btn" onclick="logout()">Cerrar Sesión</button>
     </nav>
 
     <!-- Contenido dinámico -->
     <main class="content">
-      <section id="gestionPagos" class="section active">
-        <h1>Gestión de Pagos</h1>
-        <p>Aquí se podrán gestionar los pagos.</p>
-      </section>
+      <!-- Gestión de Usuarios -->
       <section id="gestionUsuarios" class="section">
         <h1>Gestión de Usuarios</h1>
-        <p>Aquí se podrán gestionar los usuarios.</p>
+        <div class="crud-actions">
+          <button onclick="getEstudiantes()">Listar Usuarios</button>
+          <button onclick="updateEstudiante()">Actualizar Usuario</button>
+          <button onclick="deleteEstudiante()">Eliminar Usuario</button>
+        </div>
+        <div id="estudiantesResult"></div>
       </section>
+
+      <!-- Gestión de Tutores -->
       <section id="gestionTutores" class="section">
         <h1>Gestión de Tutores</h1>
-        <p>Aquí se podrán gestionar los tutores.</p>
+        <div class="crud-actions">
+          <button onclick="getDocentes()">Listar Tutores</button>
+          <button onclick="updateDocente()">Actualizar Tutor</button>
+          <button onclick="deleteDocente()">Eliminar Tutor</button>
+        </div>
+        <div id="docentesResult"></div>
+      </section>
+
+      <!-- Gestión de Tutorías -->
+      <!-- Gestión de Tutorías -->
+      <section id="gestionTutorias" class="section">
+        <h1>Gestión de Tutorías</h1>
+        <div class="crud-actions">
+          <button onclick="getTutorias()">Listar Tutorías</button>
+          <button onclick="createTutoria()">Registrar Tutoría</button>
+          <button onclick="updateTutoria()">Actualizar Tutoría</button>
+          <button onclick="deleteTutoria()">Eliminar Tutoría</button>
+        </div>
+        <div id="tutoriasResult"></div>
       </section>
     </main>
   </div>

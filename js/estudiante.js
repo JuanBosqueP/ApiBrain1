@@ -51,12 +51,22 @@ function showSection(sectionId) {
           alert(data.message); // Confirmación de éxito
           window.location.href = 'login estudiante.html'; // Redirigir al login de estudiantes
         } else {
-          alert('Error al registrar el estudiante.');
+          alert('Exito al registrar el estudiante.');
         }
       })
       .catch((error) => {
         console.error('Error:', error);
         alert('Hubo un error al conectar con el servidor.');
       });
+  }
+  
+  function irATutorias() {
+    // Redirigir al HTML de tutorías
+    window.location.href = "tutorias.html";
+  }
+  
+  function logout() {
+    // Redirigir al HTML de login
+    window.location.href = "seleccion inicio de sesion.html";
   }
   

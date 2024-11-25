@@ -123,3 +123,21 @@ body {
   background-color: #1f53c5; /* Azul claro al pasar el mouse */
 }
 
+/* Botón del menú */
+.menu-btn {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px; /* Espaciado similar al de los enlaces */
+  border: none;
+  border-radius: 5px;
+  background-color: #24303c; /* Fondo oscuro */
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.menu-btn:hover {
+  background-color: #1f53c5; /* Azul claro al pasar el mouse */
+}
