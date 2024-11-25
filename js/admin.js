@@ -129,22 +129,23 @@ function getEstudiantes() {
 
 
 function updateEstudiante() {
-  const id = prompt('ID del estudiante que desea actualizar:');
-  
-  // Solicitar los datos actualizados al usuario
+  const id = document.getElementById('editUserId').value;
+
+  // Obtener los valores actualizados del formulario
   const updatedData = {
-    nombre: prompt('Nuevo nombre del estudiante:'),
-    apellido: prompt('Nuevo apellido del estudiante:'),
-    email: prompt('Nuevo correo del estudiante (dejar vacío para no cambiar):'),
-    telefono: prompt('Nuevo teléfono del estudiante (dejar vacío para no cambiar):'),
+    nombre: document.getElementById('editUserNombre').value,
+    apellido: document.getElementById('editUserApellido').value,
+    email: document.getElementById('editUserEmail').value,
+    telefono: document.getElementById('editUserTelefono').value,
   };
 
-  // Limpiar campos vacíos (solo se enviarán los campos modificados)
-  Object.keys(updatedData).forEach(key => {
-    if (!updatedData[key]) delete updatedData[key];
-  });
+  // Validar campos obligatorios
+  if (!updatedData.nombre || !updatedData.apellido || !updatedData.email) {
+    alert('Por favor, complete todos los campos obligatorios.');
+    return;
+  }
 
-  // Enviar la solicitud PUT al backend
+  // Enviar los datos actualizados al servidor
   fetch(`http://localhost:5001/api/estudiantes/${id}`, {
     method: 'PUT',
     headers: {
@@ -154,19 +155,21 @@ function updateEstudiante() {
   })
     .then((response) => {
       if (!response.ok) {
-        throw new Error('Error al actualizar el estudiante');
+        throw new Error('Error al actualizar el usuario');
       }
       return response.json();
     })
     .then((data) => {
-      alert(data.message || 'Estudiante actualizado exitosamente');
-      getEstudiantes(); // Refresca la lista de estudiantes
+      alert(data.message || 'Usuario actualizado exitosamente');
+      document.getElementById('editUserForm').style.display = 'none'; // Ocultar formulario
+      getEstudiantes(); // Refrescar lista de usuarios
     })
     .catch((error) => {
-      console.error('Error al actualizar el estudiante:', error);
-      alert('Hubo un error al actualizar el estudiante.');
+      console.error('Error al actualizar el usuario:', error);
+      alert('Hubo un error al actualizar el usuario.');
     });
 }
+
 
 
 function deleteEstudiante() {
@@ -490,5 +493,33 @@ function createTutoria() {
     });
 }
 
+function showEditForm() {
+  const id = prompt('Ingrese el ID del usuario que desea modificar:');
+  if (!id) return;
+
+  // Llamada para obtener los datos del usuario por ID
+  fetch(`http://localhost:5001/api/estudiantes/${id}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      // Rellenar los campos del formulario con los datos del usuario
+      document.getElementById('editUserId').value = data._id;
+      document.getElementById('editUserNombre').value = data.nombre || '';
+      document.getElementById('editUserApellido').value = data.apellido || '';
+      document.getElementById('editUserEmail').value = data.email || '';
+      document.getElementById('editUserTelefono').value = data.telefono || '';
+
+      // Mostrar el formulario
+      document.getElementById('editUserForm').style.display = 'block';
+    })
+    .catch((error) => {
+      console.error('Error al obtener el usuario:', error);
+      alert('No se pudo cargar la información del usuario.');
+    });
+}
 
 
